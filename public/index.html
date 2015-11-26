@@ -1,0 +1,83 @@
+<!DOCTYPE>
+<html ng-app="myApp">
+  <head>
+    <link rel="stylesheet" href="/style/style.css" media="screen" title="no title" charset="utf-8">
+    <title></title>
+
+    <!-- Materialize CSS framework -->
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/css/materialize.min.css">
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/js/materialize.min.js"></script>
+
+    <!-- Angular CDN -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+  </head>
+
+  <body>
+    <nav>
+      <div class="nav-wrapper cyan">
+        <img class="brand-logo center" src="http://i872.photobucket.com/albums/ab287/Concordo/world.gif" height="60px">
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+          <li><a href="www.pinlu.com">About</a></li>
+        </ul>
+      </div>
+    </nav>
+    <h1>BucketList</h1>
+    <br><br>
+
+    <div class="container" ng-controller="AppCtrl">
+        <div class="middle">
+          <input class="tabcenter" placeholder="Type here" ng-model="wishlist.list">
+          <button class="waves-effect lcyan btn" ng-click="addwishlist()">Add</button>
+          <br>
+          <br>
+        </div>
+
+        <!-- <table  class="highlight">
+                <thead>
+                  <tr>List
+                  </tr>
+                </thead>
+
+                <tbody>
+          <tr ng-repeat="wishlist in bucketlist"> {{wishlist.list}}</tr>
+        </tbody>
+      </table> -->
+
+
+          <!-- <input id='add' type='button' value='button 1' onclick='javascript:show_hide("add","update")'/>
+          <input id='update' type='button' value='button 2' style='visibility:hidden' onclick='javascript:show_hide("update","add")'/> -->
+
+
+
+          <!-- <td><button class="" ng-click="update()">Update</button></td> -->
+            <!-- <button class="" ng-click="deselect()">Clear</button>-->
+
+      <ol>
+          <li ng-repeat="wishlist in bucketlist">
+
+          {{wishlist.list}} <span ng-click="remove(wishlist._id)">X</span>
+          <!-- <td><button class="" ng-click="remove(wishlist._id)">X</button></td> -->
+          <button class="" ng-click="edit(wishlist._id)">Edit</button>
+          <button class="" ng-click="check(wishlist._id)">Check</button>
+        </li>
+      </ol>
+  </div>
+
+  <script
+
+      <script src="/controllers/controller.js"></script>
+
+<!-- <script language='javascript' type='text/javascript'>
+
+    function show_hide(id2hide, id2show)
+    {
+        document.getElementById(id2hide).style.visibility='hidden';
+        document.getElementById(id2show).style.visibility='visible';
+    }
+
+</script> -->
+  </body>
+</html>
