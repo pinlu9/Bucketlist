@@ -1,13 +1,13 @@
 var express     = require('express');
-var app         = express();
+var server         = express();
 var mongojs     = require('mongojs');
 var db          = mongojs('bucketlist', ['bucketlist']);
 var bodyParser  = require('body-parser');
 
-app.use(express.static(__dirname + '/public'));
-app.use(bodyParser.json());
+server.use(express.static(__dirname + '/public'));
+server.use(bodyParser.json());
 
-app.get('/bucketlist', function (req, res) {
+server.get('/bucketlist', function (req, res) {
   console.log('I received a GET request');
 
   db.bucketlist.find(function (err, docs) {
@@ -16,14 +16,14 @@ app.get('/bucketlist', function (req, res) {
   });
 });
 
-app.post('/bucketlist', function (req, res) {
+server.post('/bucketlist', function (req, res) {
   console.log(req.body);
   db.bucketlist.insert(req.body, function(err, doc) {
     res.json(doc);
   });
 });
 
-app.delete('/bucketlist/:id', function (req, res) {
+server.delete('/bucketlist/:id', function (req, res) {
   var id = req.params.id;
   console.log(id);
   db.bucketlist.remove({_id: mongojs.ObjectId(id)}, function (err, doc) {
@@ -31,7 +31,7 @@ app.delete('/bucketlist/:id', function (req, res) {
   });
 });
 
-app.get('/bucketlist/:id', function (req, res) {
+server.get('/bucketlist/:id', function (req, res) {
   var id = req.params.id;
   console.log(id);
   db.bucketlist.findOne({_id: mongojs.ObjectId(id)}, function (err, doc) {
@@ -39,7 +39,7 @@ app.get('/bucketlist/:id', function (req, res) {
   });
 });
 
-app.put('/bucketlist/:id', function (req, res) {
+server.put('/bucketlist/:id', function (req, res) {
   var id = req.params.id;
   console.log(req.body.list);
   db.bucketlist.findAndModify({
@@ -53,7 +53,6 @@ app.put('/bucketlist/:id', function (req, res) {
 
 
 
-
-
-app.listen(3000);
-console.log("Server running on port 3000");
+server.listen(3000, function(){
+   console.log('Listening on http://%s:%s');
+});
