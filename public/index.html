@@ -15,7 +15,7 @@
     <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/js/materialize.min.js"></script>
 
-    <!-- Angular CDN --> 
+    <!-- Angular CDN -->
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
@@ -33,28 +33,32 @@
 
     <div  class="center"
           ng-controller="AppCtrl">
-        
+
         <input class="input-field col s6 "
-               type="text" 
-               placeholder="Type here" 
+               type="text"
+               placeholder="Type here"
                ng-model="wishlist.list">
 
-        <button class="waves-effect cyan btn" 
+        <button class="waves-effect cyan btn"
                 ng-click="addwishlist()">Add</button>
-       
-  <i class="" ng-click="update(wishlist.id)">Update</i>
 
-      <ol>
+  <!-- <i class="" ng-click="update(wishlist.id)">Update</i> -->
+
+      <ul>
           <li  ng-repeat="wishlist in bucketlist">
-          {{wishlist.list}} 
-          <i class="fa fa-times" ng-click="remove(wishlist._id)"></i>
-          <i class="fa fa-pencil" ng-click="edit(wishlist._id)"></i>
-          
-       
+          {{wishlist.list}}
+          <i class="fa fa-times-circle" ng-click="remove(wishlist._id)"></i>
+          <!-- <i class="fa fa-pencil" ng-click="edit(wishlist._id)"></i> -->
+          <p>
+</p>
         </li>
-      </ol>
+      </ul>
   </div>
 
+<div id="footer">
+  <strong>
+<a href="www.pinlu.co">© 2015 Pin Lu</a></strong>
+  <div>
 
 
       <script src="/controllers/controller.js"></script>
