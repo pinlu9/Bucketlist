@@ -43,24 +43,19 @@
                 <br>
                 <br><br>
 
-  <!-- <i class="" ng-click="update(wishlist.id)">Update</i> -->
-
       <ul>
           <li  ng-repeat="wishlist in bucketlist">
-          {{wishlist.list}}
-          <i class="fa fa-times-circle" ng-click="remove(wishlist._id)"></i>
-          <!-- <i class="fa fa-pencil" ng-click="edit(wishlist._id)"></i> -->
-          <p>
-</p>
-        </li>
+            {{wishlist.list}}
+            <i class="fa fa-times-circle" ng-click="remove(wishlist._id)"></i>
+          </li>
+          <p> </p>
       </ul>
   </div>
 
 <div id="footer">
   <strong>
-<a href="www.pinlu.co">© 2015 Pin Lu</a></strong>
-  <div>
-
+  <a href="www.pinlu.co">© 2015 Pin Lu</a></strong>
+<div>
 
       <script src="/controllers/controller.js"></script>
 

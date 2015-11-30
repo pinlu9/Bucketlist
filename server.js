@@ -52,7 +52,4 @@ server.put('/bucketlist/:id', function (req, res) {
 });
 
 
-
-server.listen(3000, function(){
-   console.log('Listening on http://%s:%s');
-});
+server.listen(process.env.PORT || 3000);
